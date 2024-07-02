@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+        #customers {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+          
+        }
+        
+        #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 8px;
+          text-align: center;
+    
+        }
+        
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        
+        #customers tr:hover {background-color: #ddd;}
+        
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #04AA6D;
+          color: white;
+          text-align: center;
+        }
+        </style>
+</head>
+<body>
+    <h1>my Home page</h1>
+   <table id="customers">
+<tr>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>phone</th>
+        <th>joined_date</th>
+
+</tr>
+    {% if members %}
+    {% for x in members %}
+
+<tr>
+
+        <td>{{x.firstname}}</td>
+        <td>{{x.lastname}}</td>
+        <td>{{x.phone}}</td>
+        <td>{{x.joined_date}}</td>
+
+</tr>
+
+    {% endfor%}
+    {% else %}
+
+<tr>
+        <td colspan="4">NO HOME</td>
+</tr>
+    {% endif %}
+   </table>
+</body>
+</html>
